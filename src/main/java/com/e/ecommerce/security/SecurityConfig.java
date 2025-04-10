@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         auth -> auth.requestMatchers("/auth/**")
                                 .permitAll()
-                                .requestMatchers("/api/cart/**").hasAnyAuthority("USER", "ADMIN")
+                                .requestMatchers("/api/cart/**", "/api/orders/**").hasAnyAuthority("USER", "ADMIN")
                                 .requestMatchers("/api/products/**").hasAnyAuthority("USER", "ADMIN")
                                 .anyRequest()
                                 .authenticated()
